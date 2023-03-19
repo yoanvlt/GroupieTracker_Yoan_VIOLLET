@@ -1,0 +1,22 @@
+body {
+    height:100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #f44336;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background-repeat: repeat-y;
+    background-size: contain;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.5;
+}
