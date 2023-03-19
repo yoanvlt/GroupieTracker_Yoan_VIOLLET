@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <title>Pokedex</title>
+</head>
+<body>
+    <header>
+        <div class="ctn-logo">
+            <img src="assets/img/International_Pokémon_logo.svg.png" alt="logo" class="logo">
+        </div>
+        <div class="nav">
+            <a id="link" href="#"><span id="burger"></span></a>
+            <ul class="ctn-btn">
+                <li><a class="btn btn0"href="/">Home</a></li>
+                <li><a class="btn btn1"href="/pokedex">Pokedex</a></li>
+                <li><a class="btn btn2" href="/starters">Starters</a></li>
+                <li><a class="btn btn3"  href="/generation">Generations</a></li>
+            </ul>
+        </div>
+        <script src="assets/js/navbar.js"></script>    
+    </header>
+    <div class="placement">
+        <form action="/pokedex" method="POST">
+            <label for="pokedexID">Pokedex</label>
+            <input type="text" id="pokedexID" name="pokedexID" required max="1008" min="1">
+            <button type="submit">Find</button>
+        </form>
+        <div class="pokemon">
+            {{if .Sprites.FrontDefault}}
+                <img src="{{.Sprites.FrontDefault}}" alt="{{.Name}}">
+            {{else}}
+                <img src="assets/img/5a46146bd099a2ad03f9c99a.png" alt="404">
+            {{end}}
+            <div class="pokemon-name">{{.Name}}</div>
+            {{if .ID}}
+                <div class="pokemon-number">#{{.ID}}</div>
+            {{end}}
+            <div class="pokemon-types">
+                {{range .Types}}
+                    <span class="pokemon-type {{.Type.Name}}">{{.Type.Name}}</span>
+                {{end}}
+            </div>
+        </div>
+    </div>   
+</body>
+</html>

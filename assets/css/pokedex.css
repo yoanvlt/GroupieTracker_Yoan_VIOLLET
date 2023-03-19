@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.placement {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.pokemon {
+    padding: 20px;
+    margin:20px;
+    background-color:#f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon img {
+    width: 205px;
+    height: 205px;
+    background-color: #adadad;
+    border-radius:10px;
+}
+
+.pokemon-name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.pokemon-types {
+    margin: 10px 0;
+}
+
+.pokemon-type {
+    box-sizing: content-box;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #bdc3c7;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.fire {
+    background-color: #fd7d24;
+}
+
+.grass {
+    background-color: #9bcc50;
+}
+
+.water {
+    background-color: #4592c4;
+}
+
+.electric {
+    background-color: #eed535;
+}
+
+.normal {
+    background-color: #a4acaf;
+}
+
+.fighting {
+    background-color: #d56723;
+}
+
+.flying {
+    background-color: #7bb5c5;
+}
+
+.poison {
+    background-color: #b97fc9;
+}
+
+.ground {
+    background-color: #ab9842;
+}
+
+.rock {
+    background-color: #a38c21;
+}
+
+.bug {
+    background-color: #729f3f;
+}
+
+.ghost {
+    background-color: #7b62a3;
+}
+
+.psychic {
+    background-color: #f366b9;
+}
+
+.ice {
+    background-color: #51c4e7;
+}
+
+.dragon {
+    background-color: #3f6bfd;
+}
+
+.dark {
+    background-color: #707070;
+}
+
+.steel {
+    background-color: #9eb7b8;
+}
+
+.fairy {
+    background-color: #fdb9e9;
+}
+
+.pokemon-id {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+  
+label {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+input[type="text"] {
+    width: 200px;
+    height: 50px;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    background-color: #e5e5e5;
+    margin-bottom: 20px;
+}
+  
+button[type="submit"] {
+    width: 150px;
+    height: 50px;
+    font-size: 24px;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0px 3px 0px 0px #9b1f1f;
+}
+  
+button[type="submit"]:hover {
+    background-color: #d63232;
+    box-shadow: 0px 3px 0px 0px #a62323;
+}
+  
+button[type="submit"]:active {
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}

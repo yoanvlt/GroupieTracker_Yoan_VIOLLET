@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/starters.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div class="ctn-logo">
+            <img src="assets/img/International_Pokémon_logo.svg.png" alt="logo" class="logo">
+        </div>
+        <div class="nav">
+            <a id="link" href="#"><span id="burger"></span></a>
+            <ul class="ctn-btn">
+                <li><a class="btn btn0"href="/">Home</a></li>
+                <li><a class="btn btn1"href="/pokedex">Pokedex</a></li>
+                <li><a class="btn btn2" href="/starters">Starters</a></li>
+                <li><a class="btn btn3"  href="/generation">Generations</a></li>
+            </ul>
+        </div>
+        <script src="assets/js/navbar.js"></script>    
+    </header>
+    <div class="card-container">
+        {{range .}}
+        <div class="card">
+            <img src="{{.Sprites.FrontDefault}}" alt="{{.Name}}">
+            <div class="card-info">
+                <h3>{{.Name}}</h3>
+                <a href="#" class="btn-starters">Voir les détails</a>
+            </div>
+        </div>
+        {{end}}
+    </div>    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/generation.css">
+	<link rel="stylesheet" href="assets/css/navbar.css">
+    <title>Document</title>
+</head>
+<body>
+	<header>
+        <div class="ctn-logo">
+            <img src="assets/img/International_Pokémon_logo.svg.png" alt="logo" class="logo">
+        </div>
+        <div class="nav">
+            <a id="link" href="#"><span id="burger"></span></a>
+            <ul class="ctn-btn">
+                <li><a class="btn btn0"href="/">Home</a></li>
+                <li><a class="btn btn1"href="/pokedex">Pokedex</a></li>
+                <li><a class="btn btn2" href="/starters">Starters</a></li>
+                <li><a class="btn btn3"  href="/generation">Generations</a></li>
+            </ul>
+        </div>
+        <script src="assets/js/navbar.js"></script>    
+    </header>
+
+	<h1>Generation Pokedex</h1>
+	<form method="POST" action="/generation">
+	  <label for="generation">Choose a generation:</label>
+	  <select id="generation" name="generation">
+		<option value="1">Generation 1</option>
+		<option value="2">Generation 2</option>
+		<option value="3">Generation 3</option>
+		<option value="4">Generation 4</option>
+		<option value="5">Generation 5</option>
+		<option value="6">Generation 6</option>
+		<option value="7">Generation 7</option>
+		<option value="8">Generation 8</option>
+	  </select>
+	  <button type="submit">Go</button>
+	</form>
+  
+	{{if .}}
+	  <ul class="pokemon-list">
+	  {{range .}}
+		<li class="pokemon-card">
+		  <img class="pokemon-image" src="{{.Sprites.FrontDefault}}" alt="{{.Name}}">
+		  <div class="pokemon-info">
+			<h2 class="pokemon-name">{{.Name}}</h2>
+			<ul class="pokemon-types">
+			{{range .Types}}
+			  <li class="pokemon-type {{.Type.Name}}">{{.Type.Name}}</li>
+			{{end}}
+			</ul>
+		  </div>
+		</li>
+	  {{end}}
+	  </ul>
+	{{end}}
+</body>
+</html>
