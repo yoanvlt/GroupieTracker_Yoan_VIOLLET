@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 type Pokemon struct {
@@ -148,34 +149,36 @@ func generationPokedex(generation int) ([]Pokemon, error) {
 
 func serveGenerationPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("templates/generation.html"))
+	tmpl.Execute(w, nil)
+}
 
-	if r.Method == http.MethodPost {
-		err := r.ParseForm()
-		if err != nil {
-			http.Error(w, "Bad Request", http.StatusBadRequest)
-			return
-		}
+func serveAfficheGenerationPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("templates/affichegen.html"))
 
-		generationStr := r.FormValue("generation")
-		generation, err := strconv.Atoi(generationStr)
-		if err != nil {
-			http.Error(w, "Bad Request", http.StatusBadRequest)
-			return
-		}
+	// Extraire l'ID de la génération à partir de l'URL de la requête
+	generationStr := strings.TrimPrefix(r.URL.Path, "/generation/")
+	if generationStr == r.URL.Path {
+		// La partie "/generation/" n'a pas été trouvée dans l'URL, donc nous n'avons pas d'ID de génération valide
+		http.Error(w, "Bad Request", http.StatusBadRequest)
+		return
+	}
 
-		pokemonList, err := generationPokedex(generation)
-		if err != nil {
-			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-			return
-		}
+	generation, err := strconv.Atoi(generationStr)
+	if err != nil {
+		http.Error(w, "Bad Request", http.StatusBadRequest)
+		return
+	}
 
-		err = tmpl.Execute(w, pokemonList)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-	} else {
-		tmpl.Execute(w, nil)
+	pokemonList, err := generationPokedex(generation)
+	if err != nil {
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, pokemonList)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 }
 
@@ -246,6 +249,38 @@ func startersPokedex() ([]Pokemon, error) {
 	return pokemonList, nil
 }
 
+func handleGeneration1(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration2(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration3(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration4(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration5(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration6(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration7(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
+func handleGeneration8(w http.ResponseWriter, r *http.Request) {
+	serveAfficheGenerationPage(w, r)
+}
+
 func main() {
 
 	static := http.FileServer(http.Dir("assets"))
@@ -255,6 +290,14 @@ func main() {
 	http.HandleFunc("/pokedex", servePokedexPage)
 	http.HandleFunc("/generation", serveGenerationPage)
 	http.HandleFunc("/starters", serveStartersPage)
+	http.HandleFunc("/generation/1", handleGeneration1)
+	http.HandleFunc("/generation/2", handleGeneration2)
+	http.HandleFunc("/generation/3", handleGeneration3)
+	http.HandleFunc("/generation/4", handleGeneration4)
+	http.HandleFunc("/generation/5", handleGeneration5)
+	http.HandleFunc("/generation/6", handleGeneration6)
+	http.HandleFunc("/generation/7", handleGeneration7)
+	http.HandleFunc("/generation/8", handleGeneration8)
 
 	http.ListenAndServe(":8080", nil)
 }

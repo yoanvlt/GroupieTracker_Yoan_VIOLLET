@@ -1,9 +1,8 @@
 .container {
     display:flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #111;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 img {
@@ -26,6 +25,10 @@ p{
     margin-bottom: 20px;
 }
 
+a {
+    text-decoration:none;
+}
+
 .box{
     display: flex;
     flex-direction: column;
@@ -39,18 +42,12 @@ p{
     box-shadow: -10px -10px 35px rgba(32, 56, 163, 0.274);
 }
 
+.box{
+    margin: 50px;
+}
+
 .box:hover{
     box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.267);
     background-color: #FF4655;
 
-}
-
-@media(max-width:800px){
-    .container{
-        flex-direction: column;
-        height: 100%;
-    }
-    .box{
-        margin: 50px;
-    }
 }
