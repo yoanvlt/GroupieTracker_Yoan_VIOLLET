@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/generation.css">
 	<link rel="stylesheet" href="assets/css/navbar.css">
-    <title>Document</title>
+    <title>Choose Generation</title>
 </head>
 <body>
 	<header>
@@ -24,39 +24,47 @@
         </div>
         <script src="assets/js/navbar.js"></script>    
     </header>
-
-	<h1>Generation Pokedex</h1>
-	<form method="POST" action="/generation">
-	  <label for="generation">Choose a generation:</label>
-	  <select id="generation" name="generation">
-		<option value="1">Generation 1</option>
-		<option value="2">Generation 2</option>
-		<option value="3">Generation 3</option>
-		<option value="4">Generation 4</option>
-		<option value="5">Generation 5</option>
-		<option value="6">Generation 6</option>
-		<option value="7">Generation 7</option>
-		<option value="8">Generation 8</option>
-	  </select>
-	  <button type="submit">Go</button>
-	</form>
-  
-	{{if .}}
-	  <ul class="pokemon-list">
-	  {{range .}}
-		<li class="pokemon-card">
-		  <img class="pokemon-image" src="{{.Sprites.FrontDefault}}" alt="{{.Name}}">
-		  <div class="pokemon-info">
-			<h2 class="pokemon-name">{{.Name}}</h2>
-			<ul class="pokemon-types">
-			{{range .Types}}
-			  <li class="pokemon-type {{.Type.Name}}">{{.Type.Name}}</li>
-			{{end}}
-			</ul>
-		  </div>
-		</li>
-	  {{end}}
-	  </ul>
-	{{end}}
+	<div class="container">
+        <div class="box">
+            <img src="assets/img/kanto.jpg" alt="">
+            <h1>Generation 1</h1>
+            <p>text random</p>
+        </div>
+        <div class="box">
+            <img src="#" alt="">
+            <h1>Generation 2</h1>
+            <p>text random</p>
+        </div>
+        <div class="box">
+            <img src="#" alt="">
+            <h1>Generation 3</h1>
+            <p>text random</p>
+        </div>
+		<div class="box">
+            <img src="#" alt="">
+            <h1>Generation 4</h1>
+            <p>text random</p>
+        </div>
+		<div class="box">
+            <img src="#" alt="">
+            <h1>Generation 5</h1>
+            <p>text random</p>
+        </div>
+        <div class="box">
+            <img src="#" alt="">
+            <h1>Generation 6</h1>
+            <p>text random</p>
+        </div>
+        <div class="box">
+            <img src="#" alt="">
+            <h1>Generation 7</h1>
+            <p>text random</p>
+        </div>
+		<div class="box">
+            <img src="#" alt="">
+            <h1>Generation 8</h1>
+            <p>text random</p>
+        </div>
+    </div>
 </body>
 </html>
