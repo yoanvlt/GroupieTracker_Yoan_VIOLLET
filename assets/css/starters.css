@@ -1,11 +1,18 @@
+body {    
+    background-image:url('/assets/img/background.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
 
 .card-container {
+    margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .card {
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     margin: 0 10px 20px;

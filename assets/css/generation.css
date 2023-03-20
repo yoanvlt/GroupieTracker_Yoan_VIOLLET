@@ -1,3 +1,9 @@
+body {
+    background-image:url('/assets/img/background.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
 .container {
     display:flex;
     justify-content: center;
@@ -29,6 +35,10 @@ a {
     text-decoration:none;
 }
 
+.text-card {
+    color: black;
+}
+
 .box{
     display: flex;
     flex-direction: column;
@@ -48,6 +58,6 @@ a {
 
 .box:hover{
     box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.267);
-    background-color: #FF4655;
+    background-color: red;
 
 }
