@@ -4,21 +4,29 @@ body {
     background-repeat: no-repeat;
 }
 
+.img-pokeapi {
+    margin-bottom: 50px;
+    width: 400px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .background {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     height: 100vh;
 }
 
 .container {
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 5px solid #f44336;
     border-radius: 10px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top:100px ;
+    margin-bottom:20px ;
     text-align: center;
     padding: 20px;
     background-repeat: repeat-y;
